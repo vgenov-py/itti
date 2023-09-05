@@ -27,11 +27,6 @@ m_course = [{
 	"name": "Pablo",
 	"id" :  "006",
   "score": 9
-},
-{
-	"name": "Patricia",
-	"id" :  "007",
-  "score": 2.3
 }
 ]
 
@@ -100,14 +95,19 @@ return counter;
 '''
 
 # best_student = None
-def highest_score():
-    best_score = 0
+def highest_score(is_max=True):
+    best_score = 0 if is_max else 10
     for student in courses: # student = courses[i]
-        if student["score"] > best_score:
-            best_score = student["score"]
-            best_student = student
+        if is_max:
+            if student["score"] > best_score:
+                best_score = student["score"]
+                best_student = student
+        else:
+            if student["score"] < best_score:
+                best_score = student["score"]
+                best_student = student
     return best_student["name"]
-print(highest_score())
-print("END")
+print(highest_score(is_max=False))
+# print("END")
 
 # Big O notation -> O(n*2) -> O(n)
