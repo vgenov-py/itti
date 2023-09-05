@@ -106,7 +106,7 @@ def highest_score():
         if student["score"] > best_score:
             best_score = student["score"]
             best_student = student
-    return best_student
+    return best_student["name"]
 print(highest_score())
 print("END")
 
