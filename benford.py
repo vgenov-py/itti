@@ -34,9 +34,42 @@ def get_by_nie(ine:str) -> dict:
 # print(get_by_nie("280014"))
 
 a = sum(map(lambda mun: mun["densidad_por_km2"] * mun["superficie_km2"], data))
-print(a)
+# print(a)
 # Función que permita encontrar municipio [dict] por código INE
 
 # Función que permita encontrar un mun en base a cualquier clave con su respectivo valor
 
 # get_by_key("municipio_codigo", "001")
+
+def ley_benford(): # O(n) O(1) -> O(n*9) -> O(n)
+    dic = {"1": 0, "2": 0, "3": 0, "4": 0,"5" : 0, "6": 0, "7": 0, "8": 0, "9": 0}
+    [0.3,0.18,0.3] 
+    for densidad in data: # 179 * 2 = 358
+        densidad["densidad_por_km2"] = str(densidad["densidad_por_km2"])
+        for num in dic: # 9 * 2 = 18
+            if densidad["densidad_por_km2"][0] == num:
+                dic[num] += 1
+    for i in dic: # 9 * 3 = 27
+        porcentaje = (dic[i] * 100) / len(data)
+        print(f"Porcentaje de {i} : {porcentaje}%")
+
+ley_benford()
+
+def ley_benford_2(): # O(2 + 179*3 +9) -> O(n)
+    result = {} # 1
+    len_data = len(data) # 1
+    for mun in data: # 179
+        density = str(mun["densidad_por_km2"])[0] # 1
+        try: # 1
+            result[density] += 1/len_data # 1
+        except KeyError:
+            result[density] = 1/len_data # + 9
+
+    def b(key_value:tuple) -> str:
+        print(key_value)
+        return key_value[0]
+    print(result.items())
+    print(dict(sorted(result.items(), key=b, reverse=False))) # 9 O(1)
+
+ley_benford_2()
+
