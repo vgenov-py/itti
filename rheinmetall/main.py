@@ -48,7 +48,7 @@ with open("RHM.json") as file:
     values = rhm["Time Series (Daily)"]
     def return_datetime(stock:tuple) -> str:
         return stock[0]
-    values = sorted(list(values.items()), key=return_datetime)
+    values = sorted(values.items(), key=return_datetime)
     values = [float(stock[1]["4. close"]) for stock in values if stock[0] >= "2021-02-24"]
     data["RHM"] = values
 
@@ -73,7 +73,10 @@ Análisis Rheinmetall:
 
 
 
-
+with open("data.json") as file:
+    data = json.load(file)
+    print(file.closed)
+print(file.closed)
 
 
 

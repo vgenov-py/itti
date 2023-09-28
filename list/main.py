@@ -174,4 +174,38 @@ def fibonacci(limit=15):
         if len(lista_fibo) == limit:
             return lista_fibo
             break
-print(fibonacci(6))
+# print(fibonacci(6))
+
+def fibo(limit=15):
+    fibo_list = [1,1]
+    while len(fibo) < limit:
+        fibonacci = fibo_list[-2] + fibo_list [-1]
+        fibo_list.append(fibonacci)
+    return fibo_list
+
+'''
+[1,2,3,4,5,6,7,8,9,10] step=1
+[1,3,5,7,9,11] step=2
+[1,n]
+[1,n)
+'''
+import time
+s = time.perf_counter()
+def suc_n(n:int) -> int: # O(n)
+    result = 0
+    for num in range(n+1):
+        # for _ in range(n+1): # Cuano no utilizaremos el valor del iterable, se suele denominar "_"
+        #     pass
+        result += num
+    return result
+
+n = 200_000_000
+result_a = suc_n(n) # O(n): 50.000.000 ~= 2.20 sg. && O(n**2): 10.000 ~= 1.52 
+print(time.perf_counter() - s)
+
+### n(n+1)/2
+s = time.perf_counter()
+result_b = n*(n+1)/2 #O(1)
+print(time.perf_counter() - s)
+print("Los resultados son iguales" if result_a == result_b else "Los resultados NO son iguales")
+
