@@ -131,7 +131,7 @@ def mean(data:list, s:str, e:str) -> float:
     return result/len_data
 
 mean_basic = mean(data, "2022-02-24", "2023-09-26")
-print(mean_basic)
+# print(mean_basic)
 
 # lista con los precios dentro del intervalo
 # sum(lista)/len(lista)
@@ -162,5 +162,83 @@ stock_before_war = stock_price_by_interval(data, s,e)
 stock_after_war = stock_price_by_interval(data, "2022-02-24","2023-09-26")
 
 mean_bw = sum(stock_before_war)/len(stock_before_war)
-mean_af = sum(stock_after_war)/len(stock_after_war)
-print(mean_bw, mean_af)
+
+mean_aw = sum(stock_after_war)/len(stock_after_war)
+
+# print(mean_aw)
+
+'''
+2. Calcular varianza
+Y == MEDIA
+Σ₁
+# 90, 90, 90, 90, 90
+Σ(y₁-Ȳ)² / n - 1
+
+1. Por cada puntuación restar la media y elevar al cuadrado
+2. De ese resultado, obtener el sumatorio
+3. Dividir por n - 1
+'''
+
+def variance(data:list) -> float:
+    result = 0
+    mean = sum(data)/len(data)
+    for value in data:
+        result += (value - mean)**2
+    result = result/(len(data) - 1)
+    return result
+'''
+for i, algo in enumerate(algos):
+
+'''
+# print(variance(stock_before_war)) # map - filter - reduce
+
+# map
+n = len(stock_before_war)
+def map_variance(data:list, mean: float) -> float:
+    n = len(data)
+    return sum(map(lambda value: ((value-mean)**2)/(n-1), data))
+
+v_bw = map_variance(stock_before_war, mean_bw)
+v_aw = map_variance(stock_after_war, mean_aw)
+# print(v_aw)
+
+# s,e = "2021-02-24", "2022-02-23"
+
+
+dates_stocks = map(lambda dict_stock: tuple(dict_stock.items())[0],data)
+dates_stocks_bw = filter(lambda stock_price: stock_price[0] >= s and stock_price[0] <= e , dates_stocks)
+# print(tuple(map(lambda date_stock: date_stock[1],dates_stocks_bw)))
+# print(sum(map(lambda value: ((value[1]-mean_bw)**2)/(n-1), dates_stocks_bw)))
+
+# print(sum(map(lambda value: ((value[1]-mean_bw)**2)/(n-1), filter(lambda stock_price: stock_price[0] >= s and stock_price[0] <= e , map(lambda dict_stock: tuple(dict_stock.items())[0],data)))))
+
+# Grados de libertad:
+
+def df(s1,s2,n1,n2) -> float:
+    den = (s1/n1+s2/n2)**2
+    nom = (((s1/n1)**2)/(n1-1)) + (((s2/n2)**2)/(n2-1))
+    return den/nom
+
+print("cuasivarianza bw: ", v_bw)
+print("cuasivarianza aw: ", v_bw)
+df_rheinmetall = df(v_aw, v_bw, len(stock_after_war), len(stock_before_war))
+print("Grados de libertad: ",df_rheinmetall)
+
+# T de Student:
+
+def t_student(mean1, mean2, s1,s2,n1,n2) -> float:
+    den = mean1 - mean2
+    nom = ((s1/n1)+(s2/n2))**0.5
+    return den/nom
+
+t_value = t_student(mean_aw, mean_bw, v_aw, v_bw, len(stock_after_war), len(stock_before_war))
+print("T Student: ",t_value)
+
+import matplotlib.pyplot as plt
+
+x = list(range(len(stock_after_war)))
+y = stock_after_war
+
+fig, ax = plt.subplots()
+ax.plot(x, y)
+plt.show()
