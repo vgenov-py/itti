@@ -165,9 +165,14 @@ mean_bw = sum(stock_before_war)/len(stock_before_war)
 
 mean_aw = sum(stock_after_war)/len(stock_after_war)
 
+
 # print(mean_aw)
 
 '''
+symbol,after_conflict,mean\n
+RHM,0,80\n
+RHM,1,211
+
 2. Calcular varianza
 Y == MEDIA
 Σ₁
@@ -234,11 +239,16 @@ def t_student(mean1, mean2, s1,s2,n1,n2) -> float:
 t_value = t_student(mean_aw, mean_bw, v_aw, v_bw, len(stock_after_war), len(stock_before_war))
 print("T Student: ",t_value)
 
-import matplotlib.pyplot as plt
+headers = "symbol,n,mean,variance,t_student,d.f."
+row_1 = f"RHM_1,{len(stock_before_war)},{mean_bw},{v_bw},{t_value},{df_rheinmetall}"
+row_2 = f"RHM_2,{len(stock_after_war)},{mean_aw},{v_aw},,"
+to_write = [headers,row_1,row_2]
 
-x = list(range(len(stock_after_war)))
-y = stock_after_war
+print(to_write)
 
-fig, ax = plt.subplots()
-ax.plot(x, y)
-plt.show()
+def export_txt(file_name:str, content:list):
+    file = open(file_name, "w", encoding="utf-8")
+    file.writelines(f"{row}\n" for row in content)
+    file.close()
+
+export_txt("result.txt", to_write)
