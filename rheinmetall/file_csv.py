@@ -1,4 +1,5 @@
 import csv
+import gzip
 
 "SIN MÓDULO CSV: "
 with open("result.csv", "r", encoding="utf-8") as file:
@@ -16,9 +17,20 @@ with open("result.csv", "r", encoding="utf-8") as file:
     data = list(csv_reader)
     # FILE CLOSED
 
-data.append(["LMT;1", 400, 300.33])
-for row in data:
-    print(row)
-with open("result.csv", "w", encoding="utf-8") as file:
+# data.append(["LMT;1", 400, 300.33])
+for row in range(100000): # O(n)
+    data.append("XXX;XXX;XXX")
+
+with open("result.csv", "w") as file:
     csv_writer = csv.writer(file, delimiter=";")
-    csv_writer.writerows(data)
+    # csv_writer.writerows(data) # O(n)
+    for row in data: 
+        csv_writer.writerow(row) # O(n)
+
+"CSV compress:"
+
+with gzip.open("result.csv.gz", "wt") as file:
+    csv_writer = csv.writer(file, delimiter=";")
+    # csv_writer.writerows(data) # O(n)
+    for row in data: 
+        csv_writer.writerow(row) # O(n)

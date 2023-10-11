@@ -1,5 +1,6 @@
 # import requests as req
 import json
+import csv
 
 url = "https://api.twelvedata.com/time_series?apikey=74ba75970dee40e087c8f3f4ff52ed6b&symbol=LMT&interval=1day&exchange=NYSE&type=stock&start_date=2021-02-23 20:27:00&end_date=2023-09-26 20:27:00&format=json"
 
@@ -252,3 +253,14 @@ def export_txt(file_name:str, content:list):
     file.close()
 
 export_txt("result.txt", to_write)
+
+def export_csv(file_name:str, content:list):
+    with open(file_name, "w", encoding="utf-8") as file:
+        csv_writer = csv.writer(file, delimiter=";")
+        csv_writer.writerows(content)
+
+data = [
+    headers.split(","),
+    row_1.split(","),
+    row_2.split(","),
+]
