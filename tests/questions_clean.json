@@ -1,0 +1,260 @@
+{
+    "questions": [
+        {"question": "What is the expected output of the following code?\n\nx = [0, 1, 2]\nx.insert(0, 1)   \ndel x[1]\nprint(sum(x))", 
+        "options": [
+        "5",
+        "4",
+        "3",
+        "2"
+    ],
+        "answer": "4",
+        "family" : "pcep",
+        "subject": "Data Aggregates"
+       
+    },
+      
+    {
+        "question": "You develop a Python application for your companYou have the following code.\n\ndef main(a, b, c, d):\n    value = a + b * c - d\n    return value\n\nWhich of the following expressions is equivalent to the expression in the function?",
+        "options": ["(a + (b * c) - d)", "None of the above", "(a + b) * (c - d)", "a + ((b * c)) - d"],
+        "answer": "(a + (b * c) - d)",
+        "family": "pcep",
+        "subject": "Operators"
+    },
+    {
+        "question": "What will happen when you attempt to run the following code?\n\nprint(Hello, World!)",
+        "options": [
+            "The code will raise the SyntaxError exception",
+            "The code will print Hello, World! to the console",
+            "The code will raise the TypeError exception",
+            "The code will raise the ValueError exception",
+            "The code will raise the AttributeError exception"
+        ],
+        "answer": "The code will raise the SyntaxError exception",
+        "family" : "pcep",
+        "subject": "Error Handling"
+    },
+    {
+        "question": "What is the output of the following code snippet?\n\ndef test(x=1, y=2):\nx = x + y\ny += 1\nprint(x, y)\n\ntest(2, 1)",
+        "options": ["3 3", "1 3", "The code is erroneous", "3 2", "2 3"],
+        "answer": "3 2",
+        "family" : "pcep",
+        "subject": "Functions"
+    },
+    {
+        "question": "Take a look at the snippet,and choose the true statements:\n\nnums = [1, 2, 3]\nvals = nums\ndel vals[1:2]",
+        "options": [
+            "nums and vals are of the same length",
+            "nums and vals refer to the same list",
+            "nums is no longer than vals",
+            "vals is longer than nums"
+        ],
+        "answer": "nums and vals are of the same length\nnums and vals refer to the same list",
+        "family" : "pcep",
+        "subject": "Data Aggregates"
+    },
+    {
+        "question": "The value thirty point eleven times ten raised to the power of nine should be written as:",
+        "options": ["30.11*10^9", "30.11E9.0", "30E11.9", "30.11E9"],
+        "answer": "30.11E9",
+        "family" : "pcep",
+        "subject": "Data Types"
+    },
+    {
+        "question": "What is the expected output of the following code?\n\nnum = 1\ndef func():\nnum = num + 3\nprint(num)\n\nfunc()",
+        "options": ["4 1", "The code is erroneous", "4 4", "1 4", "1 1"],
+        "answer": "The code is erroneous",
+        "family" : "pcep",
+        "subject": "Functions"
+    },
+    {
+        "question": "What is the expected behavior of the following program?\n\ntry:\nprint(5/0)\nbreak\nexcept:\nprint('Sorry, something went wrong...')\nexcept (ValueError, ZeroDivisionError):\nprint('Too bad...')",
+        "options": [
+            "The program will raise an exception handled by the first except block",
+            "The program will cause a ValueError exception and output the following messag'Too bad..'",
+            "The program will cause a ValueError exception and output a default error message",
+            "The program will cause a ZeroDivisionError exception and output a default error message",
+            "The program will raise an exception handled by the second except block"
+        ],
+        "answer": "The program will raise an exception handled by the first except block",
+        "family" : "pcep",
+        "subject": "Error Handling"
+    },
+
+            {
+        "question": "The 0o prefix means that the number after it is denoted as:",
+        "options": [
+            "binary",
+            "decimal",
+            "hexadecimal",
+            "octal"
+        ],
+        "answer": "octal",
+        "family" : "pcep",
+        "subject": "Data Types"
+    },
+    {
+        "question": "How many stars will the following code print to the monitor?\ni = 0\nwhile i <= 3:\n    i += 2\n    print('*')",
+        "options": [
+            "zero",
+            "three",
+            "one",
+            "two"
+        ],
+        "answer": "two",
+        "family" : "pcep",
+        "subject": "Control Flow"
+    },
+    {
+        "question": "Insert the correct snippet so that the program produces the expected output.\nExpected outpuTrue\n\nCode:\nlist = [False, True, '2', 3, 4, 5]\ninsert code here\nprint(b)",
+        "options": [
+            "b = 0 not in list",
+            "b = False",
+            "b = 0 in list",
+            "b = list[0]"
+        ],
+        "answer": "b = 0 in list",
+        "family" : "pcep",
+        "subject": "Data Aggregates"
+    },
+
+    {
+        "question": "What is the expected output of the following code?\ndef func(x):\nreturn 1 if x % 2 != 0 else 2\n\nprint(func(func(1)))",
+        "options": ["2", "The code is erroneous", "1", "None"],
+        "answer": "1",
+        "family" : "pcep",
+        "subject": "Control Flow"
+    },
+    {
+        "question": "What is the expected output of the following code?\ndata = ['Peter', 404, 3.03, 'Wellert', 33.3]\nprint(data[1:3])",
+        "options": ["[404, 3.03]", "None of the above", "['Peter', 404, 3.03, 'Wellert', 33.3]", "['Peter', 'Wellert']"],
+        "answer": "[404, 3.03]",
+        "family" : "pcep",
+        "subject": "Data Aggregates"
+    },
+    {
+        "question": "What will be the output of the following code snippet?\nx = 2\ny = 1\nx *= y + 1\nprint(x)",
+        "options": ["4", "None", "2", "3", "1"],
+        "answer": "4",
+        "family" : "pcep",
+        "subject": "Operators"
+    },
+    {
+        "question": "What is the expected output of the following code?\ndef func(text, num):\nwhile num > 0:\nprint(text)\nnum = num - 1\n\nfunc('Hello', 3)",
+        "options": [
+            "Hello\nHello\nHello\nHello",
+            "An infinite loop",
+            "Hello\nHello\nHello",
+            "Hello"
+        ],
+        "answer": "An infinite loop",
+        "family" : "pcep",
+        "subject": "Control Flow"
+    },
+    {
+        "question": "x = True\ny = False\nz = False\nif not x or y:\n    print(1)\nelif not x or not y and z:\n    print(2)\nelif not x or y or not y and x:\n    print(3)\nelse:\n    print(4)",
+        "options": ["1", "3", "2", "4"],
+        "answer": "3",
+        "family" : "pcep",
+        "subject": "Control Flow"
+    },
+    {
+        "question": "A function definition starts with the keyword:\ndef\nfunction\nfun",
+        "options": ["def", "function", "fun"],
+        "answer": "def",
+        "family" : "pcap",
+        "subject": "Functions"
+    },
+    {
+        "question": "What is the expected output of the following code?\n3x = 1 / 2 + 3 // 3 + 4 ** 2\nprint(x)",
+        "options": ["8.5", "8", "17","17.5"],
+        "answer": "17.5",
+        "family" : "pcap",
+        "subject": "Operators"
+    },
+    {
+        "question": "What is the expected output of the following code?\nx = 1\ny = 2\nx, y, z = x, x, y\nz, y, z = x, y, z\nprint(x, y, z)",
+        "options": ["1 1 2", "2 1 2", "1 2 2", "1 2 1"],
+        "answer": "1 1 2",
+        "family" : "pcap",
+        "subject": "Basics"
+    },
+    {
+        "question": "What is the expected output of the following code?\nlist1 = [1, 3]\nlist2 = list1\nlist1[0] = 4\nprint(list2)",
+        "options": ["[1, 3]", "[1, 3, 4]", "[1, 4]", "[4, 3]"],
+        "answer": "[4, 3]",
+        "family" : "pcap",
+        "subject": "Data Aggregates"
+    },
+    {
+        "question": "What will be the output of the following code snippet?\na = [1, 2, 3, 4, 5, 6, 7, 8, 9]\nprint(a[::2])",
+        "options": ["[1, 2]", "[1, 3, 5, 7, 9]", "[8, 9]", "[1, 2, 3]"],
+        "answer": "[1, 3, 5, 7, 9]",
+        "family" : "pcep",
+        "subject": "Data Aggregates"
+    },
+    {
+        "question": "What is the output of the following snippet?\ndictionary = {'one': 'two', 'three': 'one', 'two': 'three'}\nv = dictionary['one']\n\nfor k in range(len(dictionary)):\n    v = dictionary[v]\nprint(v)",
+        "options": ["('one', 'two', 'three')", "three", "two", "one"],
+        "answer": "two",
+        "family" : "pcep",
+        "subject": "Data Aggregates"
+    },
+    {
+        "question": "What is the output of the following snippet?\ndef fun(x, y, z):\n    return x + 2 * y + 3 * z\nprint(fun(0, z=1, y=3))",
+        "options": ["0", "9", "3", "The snippet is erroneous"],
+        "answer": "9",
+        "family" : "pcep",
+        "subject": "Functions"
+    },
+    {
+        "question": "An operator able to check whether two values are not equal is coded as:",
+        "options": ["not ==", "=/=", "<>", "!="],
+        "answer": "!=",
+        "family" : "pcep",
+        "subject": "Operators"
+    },
+    {
+        "question": "Which of the following variable names are illegal?\n(Select two answers)",
+        "options": ["TRUE", "True", "true", "and"],
+        "answer": "True, and",
+        "family" : "pcep",
+        "subject": "Basics"
+    },
+    {
+        "question": "What would you insert instead of ??? so that the program checks for even numbers?\n\nif ???:\n  print('x is an even number')",
+        "options": ["x % 2 == 0", "x % 2 == 1", "x % 1 == 2", "x % x == 0", "x % 'even' == True"],
+        "answer": "x % 2 == 0",
+        "family" : "pcep",
+        "subject": "Operators"
+    },
+    {
+        "question": "What is the expected output of the following code?\n\ndef func(data):\nfor d in data[::2]:\nyield d \n\nfor x in func('abcdef'):\n    print(x, end='').",
+        "options": ["bdf", "abcdef", "ace", "An empty line"],
+        "answer": "ace",
+        "family" : "pcep",
+        "subject": "Functions"
+    },
+    {
+        "question": "Python is an example of:",
+        "options": ["a natural language", "a high-level programming language", "a machine language"],
+        "answer": "a high-level programming language",
+        "family" : "pcep",
+        "subject": "Basics"
+    },
+    {
+        "question": "What is the expected output of the following code?\n\ndef fun():\n    return True\nx = fun(False)\nprint(x)",
+        "options": ["True", "False", "1", "The program will cause an error"],
+        "answer": "The program will cause an error",
+        "family" : "pcep",
+        "subject": "Functions"
+    },
+    {
+        "question": "What value will be assigned to the x variable?\nz=3\ny=7\nx = y < z and z > y or y > z and z < y",
+        "options": ["1", "0", "False", "True"],
+        "answer": "True",
+        "family" : "pcep",
+        "subject": "Operators"
+    }
+	]
+		
+}
