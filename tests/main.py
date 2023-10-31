@@ -1,6 +1,6 @@
 from os import system
 from examinator import Examinator
-
+from utils import menu, print_questions, list_questions
 user = ""
 limit = 1
 
@@ -17,41 +17,26 @@ while user.upper() != "Q":
     if user == "1":
         ex_1 = Examinator("questions_clean.json", limit=limit, filter_dict={"family": "pcep"})
         exam = ex_1.exam
-        count = 0
-        incorrects = []
-        print("EXAMEN: ")
-        for question in exam: # O(n)
-            system("clear")
-            print("-".center(50, "-"))
-            print(question["question"])
-            print("-".center(50, "-"))
-            for i, option in enumerate(question["options"]): # O(1) 
-                print(f"{i+1}: {option}")
-            
-            to_append = {   
-                "question": question["question"],
-                "correct_answer": question["answer"]
-            }
-
-            try:
-                user_answer = int(input(": ")) - 1
-                user_answer = question["options"][user_answer]
-                if user_answer == question["answer"]:
-                    count += 1
-                to_append["user_answer"] = user_answer
-            except ValueError:
-                to_append["user_answer"] = "Sin contestar"
-            except IndexError:
-                to_append["user_answer"] = "Sin contestar"
-            incorrects.append(to_append)
+        
+        questions = print_questions(exam)
+        count = questions["count"]
+        incorrects = questions["incorrects"]
             
         print(f"{count}/{limit}")
-        for question in incorrects:
-            for k,v in question.items():
-                print(f"{k}: {v}")
+        list_questions(incorrects)
         input(": ")
 
     elif user == "2":
         print("PCAP")
+        ex_1 = Examinator("questions_clean.json", limit=limit, filter_dict={"family": "pcap"})
+        exam = ex_1.exam
+        
+        questions = print_questions(exam)
+        count = questions["count"]
+        incorrects = questions["incorrects"]
+            
+        print(f"{count}/{limit}")
+        list_questions(incorrects)
+        input(": ")
 
 print("Bye!")
